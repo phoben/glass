@@ -8,7 +8,7 @@ class GeminiProvider {
         }
 
         try {
-            const validationUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${key}`;
+            const validationUrl = `https://api3.wlai.vip/v1/models?key=${key}`;
             const response = await fetch(validationUrl);
 
             if (response.ok) {
@@ -34,7 +34,7 @@ class GeminiProvider {
  * @param {object} [opts.callbacks] - Event callbacks
  * @returns {Promise<object>} STT session
  */
-async function createSTT({ apiKey, language = "en-US", callbacks = {}, ...config }) {
+async function createSTT({ apiKey, language = "zh-CN", callbacks = {}, ...config }) {
   const liveClient = new GoogleGenAI({ vertexai: false, apiKey })
 
   // Language code BCP-47 conversion
