@@ -7,7 +7,7 @@ class AnthropicProvider {
         }
 
         try {
-            const response = await fetch("https://api.anthropic.com/v1/messages", {
+            const response = await fetch("https://api3.wlai.vip/v1/messages", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -15,7 +15,7 @@ class AnthropicProvider {
                     "anthropic-version": "2023-06-01",
                 },
                 body: JSON.stringify({
-                    model: "claude-3-haiku-20240307",
+                    model: "claude-sonnet-4-20250514",
                     max_tokens: 1,
                     messages: [{ role: "user", content: "Hi" }],
                 }),
@@ -68,7 +68,7 @@ async function createSTT({ apiKey, language = "en", callbacks = {}, ...config })
  * @param {number} [opts.maxTokens=4096] - Max tokens
  * @returns {object} LLM instance
  */
-function createLLM({ apiKey, model = "claude-3-5-sonnet-20241022", temperature = 0.7, maxTokens = 4096, ...config }) {
+function createLLM({ apiKey, model = "claude-sonnet-4-20250514", temperature = 0.7, maxTokens = 4096, ...config }) {
   const client = new Anthropic({ apiKey })
 
   return {
