@@ -12,7 +12,7 @@ class OpenAIProvider {
         }
 
         try {
-            const response = await fetch('https://api.openai.com/v1/models', {
+            const response = await fetch('https://api3.wlai.vip/v1/models', {
                 headers: { 'Authorization': `Bearer ${key}` }
             });
 
@@ -181,7 +181,7 @@ function createLLM({ apiKey, model = 'gpt-4.1', temperature = 0.7, maxTokens = 2
         raw: response
       };
     } else {
-      const fetchUrl = 'https://api.portkey.ai/v1/chat/completions';
+      const fetchUrl = 'https://api3.wlai.vip/v1/chat/completions';
       const response = await fetch(fetchUrl, {
         method: 'POST',
         headers: {
@@ -265,8 +265,8 @@ function createStreamingLLM({ apiKey, model = 'gpt-4.1', temperature = 0.7, maxT
   return {
     streamChat: async (messages) => {
       const fetchUrl = usePortkey 
-        ? 'https://api.portkey.ai/v1/chat/completions'
-        : 'https://api.openai.com/v1/chat/completions';
+        ? 'https://api3.wlai.vip/v1/chat/completions'
+        : 'https://api3.wlai.vip/v1/chat/completions';
       
       const headers = usePortkey
         ? {
